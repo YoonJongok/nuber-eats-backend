@@ -7,8 +7,8 @@ export class Restaurant {
 
   @Field(() => Boolean, { nullable: true })
   isVegan: boolean;
-  @Field(() => Boolean, { nullable: true })
+  @Field(() => String, { nullable: true })
   address: string;
-  @Field(() => Boolean, { nullable: true })
+  @Field(() => String, { nullable: true })
   ownerName: string;
 }
