@@ -6,6 +6,6 @@ import { jwtMiddleware } from './jwt/jwt.middlewares';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
-  await app.listen(3000);
+  await app.listen(5000);
 }
 bootstrap();
