@@ -10,6 +10,7 @@ import {
 import { InternalServerErrorException } from '@nestjs/common';
 import { IsBoolean, IsEmail, IsEnum, IsString } from 'class-validator';
 import { Restaurant } from '../../restaurants/entities/restaurant.entity';
+import { Order } from '../../order/entities/order.entity';
 
 export enum UserRole {
   Client = 'Client',
@@ -47,9 +48,20 @@ export class User extends CoreEntity {
   @OneToMany((type) => Restaurant, (restaurant) => restaurant.owner)
   restaurants: Restaurant[];
 
+  @Field((type) => [Order])
+  @OneToMany((type) => Order, (order) => order.customer)
+  orders: Order[];
+
+  @Field((type) => [Order])
+  @OneToMany((type) => Order, (order) => order.driver)
+  rides: Order[];
+
   @BeforeInsert()
   @BeforeUpdate()
   async hashPassword(): Promise<void> {
+    if (!this.password) {
+      return;
+    }
     if (this.password) {
       try {
         this.password = await bcrypt.hash(this.password, 10);

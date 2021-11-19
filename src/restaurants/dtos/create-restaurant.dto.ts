@@ -1,6 +1,6 @@
-import { Restaurant } from './../restaurant.entity';
+import { Restaurant } from '../entities/restaurant.entity';
 import { Field, InputType, ObjectType, PickType } from '@nestjs/graphql';
-import { CoreOutput } from '../../../common/dtos/output.dto';
+import { CoreOutput } from '../../common/dtos/output.dto';
 
 @InputType()
 export class CreateRestaurantInput extends PickType(Restaurant, [

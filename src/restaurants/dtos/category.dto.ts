@@ -3,9 +3,9 @@ import { CoreOutput } from 'src/common/dtos/output.dto';
 import {
   PaginationInput,
   PaginationOutput,
-} from '../../../common/dtos/pagination.dto';
-import { Category } from '../category.entity';
-import { Restaurant } from '../restaurant.entity';
+} from '../../common/dtos/pagination.dto';
+import { Category } from '../entities/category.entity';
+import { Restaurant } from '../entities/restaurant.entity';
 
 @InputType()
 export class CategoryInput extends PaginationInput {

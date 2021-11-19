@@ -48,6 +48,9 @@ coverImage
 - See Restaurant
 - Edit Restaurant
 - Delete Restaurant
+
+## Dish
+
 - Create Dish
 - Edit Dish
 - Delete Dish
